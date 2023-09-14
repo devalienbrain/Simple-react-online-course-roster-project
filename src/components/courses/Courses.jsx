@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Course from "../course/Course";
 
-const Courses = () => {
+const Courses = ({ showDetailsOnCart }) => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     fetch("blogs.json")
@@ -11,7 +11,11 @@ const Courses = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {courses.map((course) => (
-        <Course key={course.title} course={course}></Course>
+        <Course
+          key={course.title}
+          course={course}
+          showDetailsOnCart={showDetailsOnCart}
+        ></Course>
       ))}
     </div>
   );

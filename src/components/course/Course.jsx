@@ -2,7 +2,7 @@ import React from "react";
 import dollar from "../../assets/dollar-sign.svg";
 import book from "../../assets/book-frame.svg";
 
-const Course = ({ course }) => {
+const Course = ({ course, showDetailsOnCart }) => {
   const { image, title, description, price, credit } = course;
   return (
     <div className="p-3 rounded-xl drop-shadow-lg bg-[#FFF] w-72">
@@ -15,7 +15,10 @@ const Course = ({ course }) => {
         <img className="ml-2 w-5" src={book} alt="" />
         <span>Credit : {credit}hr</span>
       </div>
-      <button className="bg-[#2F80ED] text-white rounded-md w-full text-center p-2">
+      <button
+        onClick={() => showDetailsOnCart(course)}
+        className="bg-[#2F80ED] text-white rounded-md w-full text-center p-2"
+      >
         Select
       </button>
     </div>
