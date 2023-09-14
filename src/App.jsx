@@ -7,7 +7,14 @@ function App() {
   const [courseDetails, setCourseDetails] = useState([]);
 
   const showDetailsOnCart = (course) => {
-    setCourseDetails([...courseDetails, course]);
+    const isClickedAlready = courseDetails.find(
+      (targetCourse) => targetCourse.title == course.title
+    );
+    if (!isClickedAlready) {
+      setCourseDetails([...courseDetails, course]);
+    } else {
+      return;
+    }
   };
 
   return (
