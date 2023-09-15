@@ -41,7 +41,7 @@ function App() {
           <Courses showDetailsOnCart={showDetailsOnCart}></Courses>
         </div>
 
-        <div className="ml-0 lg:ml-4 mt-4 lg:mt-0 w-80">
+        <div className="ml-0 lg:ml-4 mt-4 lg:mt-0 w-72">
           <Cart
             courseDetails={courseDetails}
             totalCreditOfCourse={totalCreditOfCourse}
