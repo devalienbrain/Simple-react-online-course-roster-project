@@ -5,16 +5,32 @@ import Cart from "./components/cart/Cart";
 
 function App() {
   const [courseDetails, setCourseDetails] = useState([]);
-
+  const [totalPriceOfCourse, setTotalPriceOfCourse] = useState(0);
+  const [totalCreditOfCourse, setTotalCreditOfCourse] = useState(0);
+  const [remainingCreditOfCourse, setRemainingCreditOfCourse] = useState(20);
   const showDetailsOnCart = (course) => {
     const isClickedAlready = courseDetails.find(
       (targetCourse) => targetCourse.title == course.title
     );
+    let totalPrice = course.price;
+    let totalCredit = course.credit;
+
     if (!isClickedAlready) {
+      courseDetails.forEach((theCourse) => {
+        totalPrice += theCourse.price;
+        totalCredit += theCourse.credit;
+      });
       setCourseDetails([...courseDetails, course]);
     } else {
       return;
     }
+    const remainingCredit = 20 - totalCredit;
+    // console.log(totalPrice);
+    setTotalPriceOfCourse(totalPrice);
+    // console.log(totalCredit);
+    setTotalCreditOfCourse(totalCredit);
+    // console.log(remainingCredit);
+    setRemainingCreditOfCourse(remainingCredit);
   };
 
   return (
@@ -26,7 +42,12 @@ function App() {
         </div>
 
         <div className="ml-0 lg:ml-4 mt-4 lg:mt-0 w-80">
-          <Cart courseDetails={courseDetails}></Cart>
+          <Cart
+            courseDetails={courseDetails}
+            totalCreditOfCourse={totalCreditOfCourse}
+            remainingCreditOfCourse={remainingCreditOfCourse}
+            totalPriceOfCourse={totalPriceOfCourse}
+          ></Cart>
         </div>
       </div>
     </>
