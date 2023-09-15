@@ -32,12 +32,12 @@ const Cart = ({
             );
           })}
         </div>
-        <hr className="border-[#1C1B1B33] mt-3 mb-3" />
+        <hr className="border border-[#1C1B1B33] mt-3 mb-3" />
         <span className="mt-6 mb-6 font-semibold text-sm">
           {" "}
           Total Credit Hour : {totalCreditOfCourse}{" "}
         </span>
-        <hr className="border-[#1C1B1B33] mt-3 mb-3" />
+        <hr className="border border-[#1C1B1B33] mt-3 mb-3" />
         <span className="mt-6 mb-6 font-semibold text-sm">
           {" "}
           Total Price : {totalPriceOfCourse} USD{" "}

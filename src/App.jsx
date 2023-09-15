@@ -22,6 +22,12 @@ function App() {
       });
       setCourseDetails([...courseDetails, course]);
     } else {
+      alert("NO");
+      return;
+    }
+
+    if (totalCredit > 20) {
+      alert("20");
       return;
     }
     const remainingCredit = 20 - totalCredit;
