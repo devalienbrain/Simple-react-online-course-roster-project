@@ -25,7 +25,7 @@ function App() {
           <Courses showDetailsOnCart={showDetailsOnCart}></Courses>
         </div>
 
-        <div className="ml-4 w-80">
+        <div className="ml-0 lg:ml-4 mt-4 lg:mt-0 w-80">
           <Cart courseDetails={courseDetails}></Cart>
         </div>
       </div>
