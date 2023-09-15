@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Courses from "./components/courses/Courses";
 import Cart from "./components/cart/Cart";
@@ -10,7 +12,7 @@ function App() {
   const [remainingCreditOfCourse, setRemainingCreditOfCourse] = useState(20);
   const showDetailsOnCart = (course) => {
     const isClickedAlready = courseDetails.find(
-      (targetCourse) => targetCourse.title == course.title
+      (targetCourse) => targetCourse.title === course.title
     );
     let totalPrice = course.price;
     let totalCredit = course.credit;
@@ -21,7 +23,7 @@ function App() {
         totalCredit += theCourse.credit;
       });
       if (totalCredit > 20) {
-        alert("20");
+        toast("Credit limit exceeded!");
         return;
       }
       const remainingCredit = 20 - totalCredit;
@@ -33,7 +35,7 @@ function App() {
       setRemainingCreditOfCourse(remainingCredit);
       setCourseDetails([...courseDetails, course]);
     } else {
-      alert("NO");
+      toast("This course already selected!");
       return;
     }
   };
@@ -41,6 +43,7 @@ function App() {
   return (
     <>
       <h1 className="font-bold text-3xl">Course Registration</h1>
+      <ToastContainer />
       <div className="mt-10 flex flex-col md:flex-row text-left">
         <div className="flex-1">
           <Courses showDetailsOnCart={showDetailsOnCart}></Courses>
